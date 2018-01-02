@@ -1,0 +1,38 @@
+<p-growl [(value)]="msgs"></p-growl>
+<br/><br/>
+<div class="ui-g">
+	<div class="ui-g-8">
+		<p-panel [showHeader]="false">
+			<div class="ui-g">
+				<div class="ui-g-2"><label for="speed">Tier Speed</label></div>
+				<div class="ui-g-1"><input id="speed" type="text" pInputText [(ngModel)]="inpSpeed"/></div>
+				<div class="ui-g-9"></div>
+				
+				<div class="ui-g-2"><label for="threshhold">Tier Threshold</label></div>
+				<div class="ui-g-1"><input id="threshhold" type="text" pInputText [(ngModel)]="inpThreshhold"/></div>
+				<div class="ui-g-9"></div>
+			
+				<div class="ui-g-2"></div>
+				<div class="ui-g-2"><button pButton type="button" (click)="addTier();" label="Add Tier"></button></div>
+				<div class="ui-g-8"></div>
+			</div>
+		</p-panel>
+	</div>
+	<div class="ui-g-4"></div>
+</div>
+<br/><br/>
+<div class="ui-g">
+	<div class="ui-g-8">
+	<p-dataTable [value]="tiers">
+		<p-header>Active Tiers</p-header>
+	    <p-column field="speed" header="Speed"></p-column>
+	    <p-column field="threshhold" header="Threshold"></p-column>
+	    <p-column>
+		    <ng-template let-tier="rowData" pTemplate="body">
+		        <button type="button" pButton (click)="deleteTier(tier.speed);" icon="fa-trash"></button>
+		    </ng-template>
+		</p-column>
+	</p-dataTable>
+	</div>
+	<div class="ui-g-4"></div>
+</div>

@@ -1,0 +1,43 @@
+<p-growl [(value)]="msgs"></p-growl>
+<div class="ui-g">
+	<div class="ui-g-8">
+		<p-panel [showHeader]="false">
+			<div class="ui-g">
+			
+				<div class="ui-g-4">
+					<p-radioButton name="changeGroup" value="INCREASE" [(ngModel)]="changeDirection" label="Increase Usage"></p-radioButton>
+					<p-radioButton name="changeGroup" value="DECREASE" [(ngModel)]="changeDirection" label="Decrease Usage"></p-radioButton>
+				</div>
+				<div class="ui-g-8"></div>
+				
+				<div class="ui-g-2"><label for="acct">Account Number</label></div>
+				<div class="ui-g-1"><input id="acct" type="text" pInputText [(ngModel)]="inpAccount"/></div>
+				<div class="ui-g-9"></div>
+				
+				<div class="ui-g-2"><label for="amt">Usage Amount</label></div>
+				<div class="ui-g-1"><input id="amt" type="text" pInputText [(ngModel)]="inpAmount"/></div>
+				<div class="ui-g-9"></div>
+			
+				<div class="ui-g-2"></div>
+				<div class="ui-g-2"><button pButton type="button" (click)="changeUsage();" label="Change Usage"></button></div>
+				<div class="ui-g-8"></div>
+			</div>
+		</p-panel>
+	</div>
+	<div class="ui-g-4"></div>
+</div>
+
+<div class="ui-g" *ngIf="showPanel">
+	<div class="ui-g-8">
+		<p-panel [showHeader]="false">
+			<div class="ui-g">
+			
+				<div class="ui-g-2">Total Usage: </div>
+				<div class="ui-g-1">{{ totalUsage }}</div>
+				<div class="ui-g-9"></div>
+
+			</div>
+		</p-panel>
+	</div>
+	<div class="ui-g-4"></div>
+</div>
